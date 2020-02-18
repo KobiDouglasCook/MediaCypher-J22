@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class KeyViewController: UIViewController {
     
@@ -15,22 +16,54 @@ class KeyViewController: UIViewController {
     private var numberArr = [Int](1...9).map({String($0)})
     private var iconArr = [UIImage(systemName: "faceid")!,UIImage(systemName: "checkmark.shield")!,UIImage(systemName: "delete.left")!]
     
+    private enum KeyCellType: Int {
+        case Auth = 0
+        case Enter = 1
+        case Delete = 2
+    }
+    
     private var selectedCode = String() {
         didSet {
             keyCollectionView.reloadData()
         }
     }
     
+    private var hasAccount: Bool {
+        return UserDefaults.standard.bool(forKey: "hasAccount") //retrieve from user defaults
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKey()
-      
+        // UserDefaults.standard.set(true, forKey: "isFirstTime") - save to user defaults
     }
 
     private func setupKey() {
         //MUST register Xib's to views to be able to use
         keyCollectionView.register(UINib(nibName: HeaderCollectionCell.identifier, bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionCell.identifier)
     }
+    
+    private func authenticate() {
+        
+        let context = LAContext()
+        
+        guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) else { return }
+        
+        let reason = "Use biometrics to sign in"
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, err) in
+            if let error = err {
+                print(error.localizedDescription)
+                return
+            }
+            
+            if success {
+                //TODO: Go To Next
+                print("Authenticated Successfully")
+            }
+        }
+    }
+    
+    
 
 }
 
@@ -72,9 +105,34 @@ extension KeyViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
+            guard selectedCode.count < 6 else { return }
             selectedCode.append(numberArr[indexPath.row])
         default:
-            break
+            switch indexPath.row {
+            case KeyCellType.Auth.rawValue:
+                authenticate()
+            case KeyCellType.Enter.rawValue:
+                let item = KeychainItem("user")
+                if hasAccount {
+                    switch item.isValid(selectedCode) {
+                    case true:
+                        //TODO: Go To Next
+                        break
+                    case false:
+                        //TODO: Show Alert
+                        break
+                    }
+                } else {
+                    item.save(selectedCode)
+                    UserDefaults.standard.set(true, forKey: "hasAccount")
+                    //TODO: Go To Next
+                }
+            case KeyCellType.Delete.rawValue:
+                guard !selectedCode.isEmpty else { return }
+                selectedCode.removeLast()
+            default:
+                break
+            }
         }
     }
     

@@ -21,6 +21,7 @@
 		046B0C8523FB278900F9E816 /* HeaderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B0C8323FB278900F9E816 /* HeaderCollectionCell.swift */; };
 		046B0C8623FB278900F9E816 /* HeaderCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046B0C8423FB278900F9E816 /* HeaderCollectionCell.xib */; };
 		046B0C8B23FB2BE100F9E816 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B0C8A23FB2BE100F9E816 /* Color+Extension.swift */; };
+		04B7249323FC6A9900E02BE5 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B7249223FC6A9900E02BE5 /* KeychainItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		046B0C8323FB278900F9E816 /* HeaderCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionCell.swift; sourceTree = "<group>"; };
 		046B0C8423FB278900F9E816 /* HeaderCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionCell.xib; sourceTree = "<group>"; };
 		046B0C8A23FB2BE100F9E816 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		04B7249223FC6A9900E02BE5 /* KeychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				0447A9CC23FB110C002CC0A6 /* MediaCypher_J22.xcdatamodeld */,
+				04B7249223FC6A9900E02BE5 /* KeychainItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			files = (
 				0447A9F523FB1496002CC0A6 /* KeyCollectionCellOne.swift in Sources */,
 				046B0C8B23FB2BE100F9E816 /* Color+Extension.swift in Sources */,
+				04B7249323FC6A9900E02BE5 /* KeychainItem.swift in Sources */,
 				0447A9CE23FB110C002CC0A6 /* MediaCypher_J22.xcdatamodeld in Sources */,
 				046B0C8523FB278900F9E816 /* HeaderCollectionCell.swift in Sources */,
 				0447A9C823FB110C002CC0A6 /* KeyViewController.swift in Sources */,
