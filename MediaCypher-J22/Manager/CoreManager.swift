@@ -27,6 +27,10 @@ class CoreManager {
         })
         return container
     }()
+    
+    
+    
+    
 
     // MARK: - Core Data Saving support
 
