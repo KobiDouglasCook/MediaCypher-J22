@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043E913823FEC222007A8DD2 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E913723FEC222007A8DD2 /* ViewController+Extension.swift */; };
+		043E913A23FEC338007A8DD2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E913923FEC338007A8DD2 /* HomeViewController.swift */; };
 		0447A9C423FB110C002CC0A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447A9C323FB110C002CC0A6 /* AppDelegate.swift */; };
 		0447A9C623FB110C002CC0A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447A9C523FB110C002CC0A6 /* SceneDelegate.swift */; };
 		0447A9C823FB110C002CC0A6 /* KeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447A9C723FB110C002CC0A6 /* KeyViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043E913723FEC222007A8DD2 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		043E913923FEC338007A8DD2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0447A9C023FB110C002CC0A6 /* MediaCypher-J22.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MediaCypher-J22.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0447A9C323FB110C002CC0A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0447A9C523FB110C002CC0A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				0447A9C723FB110C002CC0A6 /* KeyViewController.swift */,
+				043E913923FEC338007A8DD2 /* HomeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				046B0C8A23FB2BE100F9E816 /* Color+Extension.swift */,
+				043E913723FEC222007A8DD2 /* ViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -289,8 +295,10 @@
 				0447A9C823FB110C002CC0A6 /* KeyViewController.swift in Sources */,
 				0447A9C423FB110C002CC0A6 /* AppDelegate.swift in Sources */,
 				0447A9C623FB110C002CC0A6 /* SceneDelegate.swift in Sources */,
+				043E913823FEC222007A8DD2 /* ViewController+Extension.swift in Sources */,
 				0447A9F723FB14A2002CC0A6 /* KeyCollectionCellTwo.swift in Sources */,
 				0447A9EF23FB1174002CC0A6 /* CoreManager.swift in Sources */,
+				043E913A23FEC338007A8DD2 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

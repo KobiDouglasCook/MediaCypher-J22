@@ -93,6 +93,40 @@
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="111.99400299850076"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="InF-wk-xXg">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="myC-Tl-nbK" customClass="HomeViewController" customModule="MediaCypher_J22" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kAk-To-dBm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="aJu-Ae-GEt"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="IfG-Cb-NGe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M9c-an-hey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2006" y="112"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bV4-u3-o1T">
+            <objects>
+                <navigationController storyboardIdentifier="HomeNav" automaticallyAdjustsScrollViewInsets="NO" id="q2k-zy-mkX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NDp-fN-Dne">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="myC-Tl-nbK" kind="relationship" relationship="rootViewController" id="BDm-Fy-zAm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2qc-WZ-WnY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="112"/>
+        </scene>
     </scenes>
     <resources>
         <image name="delete.left" catalog="system" width="64" height="52"/>

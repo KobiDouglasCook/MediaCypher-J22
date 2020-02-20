@@ -57,8 +57,8 @@ class KeyViewController: UIViewController {
             }
             
             if success {
-                //TODO: Go To Next
                 print("Authenticated Successfully")
+                self.goToNext()
             }
         }
     }
@@ -112,20 +112,21 @@ extension KeyViewController: UICollectionViewDelegateFlowLayout {
             case KeyCellType.Auth.rawValue:
                 authenticate()
             case KeyCellType.Enter.rawValue:
+                guard selectedCode.count == 6 else { return }
                 let item = KeychainItem("user")
                 if hasAccount {
                     switch item.isValid(selectedCode) {
                     case true:
-                        //TODO: Go To Next
-                        break
+                        self.goToNext()
                     case false:
-                        //TODO: Show Alert
-                        break
+                        selectedCode = ""
+                        self.showAlert("Incorrect Code", "You have entered the incorrect code")
                     }
                 } else {
-                    item.save(selectedCode)
-                    UserDefaults.standard.set(true, forKey: "hasAccount")
-                    //TODO: Go To Next
+                    item.save(selectedCode) //save to keychain
+                    selectedCode = "" //reset the code
+                    UserDefaults.standard.set(true, forKey: "hasAccount") //save hasAccount to true
+                    self.goToNext()
                 }
             case KeyCellType.Delete.rawValue:
                 guard !selectedCode.isEmpty else { return }

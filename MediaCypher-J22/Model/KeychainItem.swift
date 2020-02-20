@@ -13,6 +13,8 @@ struct KeychainItem {
     
     /*
      Keychain is saved with keychain items. They are of type CFDictionary and they have 3 main attributes: 1. Access Group (allow share encypted data between apps), 2. Service (App Name), 3. Account (individual keychain item name)
+     
+     Keychain persists even AFTER app deletion
      */
     
     
@@ -28,9 +30,10 @@ struct KeychainItem {
     func save(_ password: String) {
         var item = createKeychainItem()
         guard let encoded = password.data(using: .utf8) else { return }
-        item[kSecValueData as String] = encoded as AnyObject
+        item[kSecValueData as String] = encoded as AnyObject //set password key
+        SecItemDelete(item as CFDictionary)
         SecItemAdd(item as CFDictionary, nil)
-        print("Saved Passcode to Keychain")
+        print("Saved Passcode to Keychain: \(password)")
     }
     
     //MARK: LOAD
@@ -39,11 +42,11 @@ struct KeychainItem {
         item[kSecReturnAttributes as String] = kCFBooleanTrue //return unencypted
         item[kSecReturnData as String] = kCFBooleanTrue //return as data
         
-        var result: AnyObject!
+        var result: AnyObject?
         
         SecItemCopyMatching(item as CFDictionary, &result) //copies the keychain item found
         
-        guard let returnedItem = result as? [String: AnyObject], //get back item
+        guard let returnedItem = result as? [String:AnyObject], //get back item
             let encoded = returnedItem[kSecValueData as String] as? Data, //get passcode key from item
             let pass = String(data: encoded, encoding: .utf8) else { return false } //decode passcode
     
@@ -58,11 +61,11 @@ struct KeychainItem {
         var item = [String:AnyObject]()
         
         //set item's key for generic password
-        item[kSecAttrGeneric as String] = kSecClassGenericPassword
+        item[kSecClass as String] = kSecClassGenericPassword //password type
         //set item's account attribute
-        item[kSecAttrAccount as String] = account as AnyObject
+        item[kSecAttrAccount as String] = account as AnyObject //user
         //item's service attribute
-        item[kSecAttrService as String] = service as AnyObject
+        item[kSecAttrService as String] = service as AnyObject //MediaCypher
         
         return item
     }
