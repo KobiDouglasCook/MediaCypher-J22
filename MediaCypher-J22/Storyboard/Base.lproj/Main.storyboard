@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q2k-zy-mkX">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -104,7 +104,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5lj-nx-MUt">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oYj-gP-lXF">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oYj-gP-lXF">
                                     <size key="itemSize" width="112" height="121"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -118,7 +118,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="112" height="121"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZLE-ey-yc1">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZLE-ey-yc1">
                                                     <rect key="frame" x="0.0" y="0.0" width="112" height="121"/>
                                                 </imageView>
                                             </subviews>
@@ -164,6 +164,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M9c-an-hey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2005.5999999999999" y="111.99400299850076"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="V9S-vb-B8m">
+            <objects>
+                <viewController storyboardIdentifier="PhotoViewController" id="0mu-7G-gy0" customClass="PhotoViewController" customModule="MediaCypher_J22" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GjO-oT-jBp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ha-57-kTT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aYv-DQ-Rws">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aYv-DQ-Rws" firstAttribute="centerY" secondItem="2Ha-57-kTT" secondAttribute="centerY" id="IGn-QC-crc"/>
+                                    <constraint firstItem="aYv-DQ-Rws" firstAttribute="bottom" secondItem="2Ha-57-kTT" secondAttribute="bottom" id="O0j-kj-fVl"/>
+                                    <constraint firstItem="aYv-DQ-Rws" firstAttribute="top" secondItem="2Ha-57-kTT" secondAttribute="top" id="ZNO-y2-p7a"/>
+                                    <constraint firstItem="aYv-DQ-Rws" firstAttribute="leading" secondItem="2Ha-57-kTT" secondAttribute="leading" id="bHy-U8-fMg"/>
+                                    <constraint firstItem="aYv-DQ-Rws" firstAttribute="trailing" secondItem="2Ha-57-kTT" secondAttribute="trailing" id="eNj-6k-RC7"/>
+                                    <constraint firstItem="aYv-DQ-Rws" firstAttribute="centerX" secondItem="2Ha-57-kTT" secondAttribute="centerX" id="iwv-Vc-D4Z"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Co9-X4-Sbt"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="1a4-KM-Xoe"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2Ha-57-kTT" firstAttribute="leading" secondItem="GjO-oT-jBp" secondAttribute="leading" id="319-Ga-Tvk"/>
+                            <constraint firstItem="2Ha-57-kTT" firstAttribute="top" secondItem="GjO-oT-jBp" secondAttribute="top" id="4Zh-Qb-uqY"/>
+                            <constraint firstItem="2Ha-57-kTT" firstAttribute="trailing" secondItem="GjO-oT-jBp" secondAttribute="trailing" id="BHB-2t-SWG"/>
+                            <constraint firstItem="2Ha-57-kTT" firstAttribute="bottom" secondItem="GjO-oT-jBp" secondAttribute="bottom" id="dbU-IV-oIv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NwQ-hA-8oD"/>
+                    </view>
+                    <connections>
+                        <outlet property="ourImage" destination="aYv-DQ-Rws" id="9mC-KQ-Vyn"/>
+                        <outlet property="scrollView" destination="2Ha-57-kTT" id="wO4-sf-qVU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9DT-EI-Ghc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2856.8000000000002" y="111.99400299850076"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bV4-u3-o1T">

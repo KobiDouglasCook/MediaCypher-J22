@@ -27,6 +27,10 @@
 		046B0C8523FB278900F9E816 /* HeaderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B0C8323FB278900F9E816 /* HeaderCollectionCell.swift */; };
 		046B0C8623FB278900F9E816 /* HeaderCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046B0C8423FB278900F9E816 /* HeaderCollectionCell.xib */; };
 		046B0C8B23FB2BE100F9E816 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B0C8A23FB2BE100F9E816 /* Color+Extension.swift */; };
+		0486120F24002977001B06B7 /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0486120E24002977001B06B7 /* sample.mp4 */; };
+		04861211240029C5001B06B7 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04861210240029C5001B06B7 /* URL+Extension.swift */; };
+		0486121324002D53001B06B7 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486121224002D53001B06B7 /* PhotoViewController.swift */; };
+		0486121524002F38001B06B7 /* Content+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486121424002F38001B06B7 /* Content+Extension.swift */; };
 		04B7249323FC6A9900E02BE5 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B7249223FC6A9900E02BE5 /* KeychainItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +69,10 @@
 		046B0C8323FB278900F9E816 /* HeaderCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionCell.swift; sourceTree = "<group>"; };
 		046B0C8423FB278900F9E816 /* HeaderCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionCell.xib; sourceTree = "<group>"; };
 		046B0C8A23FB2BE100F9E816 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		0486120E24002977001B06B7 /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
+		04861210240029C5001B06B7 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		0486121224002D53001B06B7 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		0486121424002F38001B06B7 /* Content+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content+Extension.swift"; sourceTree = "<group>"; };
 		04B7249223FC6A9900E02BE5 /* KeychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +125,7 @@
 				0447A9C523FB110C002CC0A6 /* SceneDelegate.swift */,
 				0447A9D423FB110D002CC0A6 /* Info.plist */,
 				0447A9C323FB110C002CC0A6 /* AppDelegate.swift */,
+				0486120E24002977001B06B7 /* sample.mp4 */,
 			);
 			path = "MediaCypher-J22";
 			sourceTree = "<group>";
@@ -174,6 +183,7 @@
 			children = (
 				0447A9C723FB110C002CC0A6 /* KeyViewController.swift */,
 				043E913923FEC338007A8DD2 /* HomeViewController.swift */,
+				0486121224002D53001B06B7 /* PhotoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -193,6 +203,8 @@
 				046B0C8A23FB2BE100F9E816 /* Color+Extension.swift */,
 				043E913723FEC222007A8DD2 /* ViewController+Extension.swift */,
 				043E914123FEDAF0007A8DD2 /* Notes.swift */,
+				04861210240029C5001B06B7 /* URL+Extension.swift */,
+				0486121424002F38001B06B7 /* Content+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -282,6 +294,7 @@
 				0447A9D023FB110D002CC0A6 /* Assets.xcassets in Resources */,
 				046B0C8623FB278900F9E816 /* HeaderCollectionCell.xib in Resources */,
 				0447A9CB23FB110C002CC0A6 /* Main.storyboard in Resources */,
+				0486120F24002977001B06B7 /* sample.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,11 +317,14 @@
 				04B7249323FC6A9900E02BE5 /* KeychainItem.swift in Sources */,
 				0447A9CE23FB110C002CC0A6 /* MediaCypher_J22.xcdatamodeld in Sources */,
 				043E914423FEDB7A007A8DD2 /* FileServiceManager.swift in Sources */,
+				0486121324002D53001B06B7 /* PhotoViewController.swift in Sources */,
 				046B0C8523FB278900F9E816 /* HeaderCollectionCell.swift in Sources */,
 				0447A9C823FB110C002CC0A6 /* KeyViewController.swift in Sources */,
 				043E913E23FED9E0007A8DD2 /* ViewModel.swift in Sources */,
 				0447A9C423FB110C002CC0A6 /* AppDelegate.swift in Sources */,
 				0447A9C623FB110C002CC0A6 /* SceneDelegate.swift in Sources */,
+				04861211240029C5001B06B7 /* URL+Extension.swift in Sources */,
+				0486121524002F38001B06B7 /* Content+Extension.swift in Sources */,
 				043E913C23FED936007A8DD2 /* HomeCollectionCell.swift in Sources */,
 				043E913823FEC222007A8DD2 /* ViewController+Extension.swift in Sources */,
 				0447A9F723FB14A2002CC0A6 /* KeyCollectionCellTwo.swift in Sources */,

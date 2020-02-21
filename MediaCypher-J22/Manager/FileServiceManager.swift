@@ -12,13 +12,16 @@ import Foundation
 struct FileServiceManager {
     
     //MARK: SAVE
-    static func save(_ data: Data) {
+    static func save(_ data: Data,_ isVideo: Bool) {
         
-        let path = String(data.hashValue)
+        let hash = String(data.hashValue)
+        let path = isVideo ? hash + ".mov" : hash
+        
         guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(path) else { return }
         
         do {
             try data.write(to: url)
+            CoreManager().save(path: path, isMovie: isVideo)
             print("Saved Data to Disk: \(url)")
         } catch {
             print(error.localizedDescription)

@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class HomeViewController: UIViewController {
-
+    
     @IBOutlet weak var homeCollectionView: UICollectionView!
     
     let viewModel = ViewModel()
@@ -18,6 +20,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
     }
     
     @IBAction func cameraButtonTapped(_ sender: UIBarButtonItem) {
@@ -26,6 +29,10 @@ class HomeViewController: UIViewController {
         imagePicker.sourceType = .photoLibrary //how to get media
         imagePicker.delegate = self
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func setup(){
+        viewModel.delegate = self
     }
     
     
@@ -52,7 +59,26 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: width)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let content = viewModel.content[indexPath.row]
+        switch content.isVideo {
+        case true:
+//            guard let path = content.path,
+//                let url = URL(string: path) else { return }
+            guard let path = Bundle.main.path(forResource: "sample", ofType: "mp4") else { return }
+            let url = URL(fileURLWithPath: path) 
+            let videoPlayer = AVPlayer(url: url)
+            let videoVC = AVPlayerViewController()
+            videoVC.player = videoPlayer
+            present(videoVC, animated: true) {
+                videoVC.player?.play()
+            }
+            
+        case false:
+            let photoVC = storyboard?.instantiateViewController(identifier: String(describing: PhotoViewController.self)) as! PhotoViewController
+            viewModel.current = content
+            photoVC.viewModel = viewModel
+            navigationController?.pushViewController(photoVC, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -74,13 +100,30 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         guard let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String else { return }
         switch mediaType == "public.movie" {
         case true:
-            break
+            guard let url = info[UIImagePickerController.InfoKey.mediaURL] as? URL,
+                let data = try? Data(contentsOf: url) else { return }
+//            guard let endpoint = Bundle.main.path(forResource: "sample", ofType: "mp4"),
+//                let data = try? Data(contentsOf:  URL(fileURLWithPath: endpoint)) else { return }
+            
+            FileServiceManager.save(data, true)
         case false:
             guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
-                let imageData = image.pngData() else { return }
-            //TODO: Save CoreData Entity
-            FileServiceManager.save(imageData)
+                let imageData = image.jpegData(compressionQuality: 0.9) else { return }
+            FileServiceManager.save(imageData, false)
+        }
+        
+        picker.dismiss(animated: true) {
+            self.viewModel.reload()
         }
     }
     
+}
+
+
+extension HomeViewController: ModelDelegate{
+    func updateUI() {
+        DispatchQueue.main.async {
+            self.homeCollectionView.reloadData()
+        }
+    }
 }

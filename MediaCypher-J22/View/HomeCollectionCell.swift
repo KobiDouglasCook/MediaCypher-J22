@@ -16,7 +16,20 @@ class HomeCollectionCell: UICollectionViewCell {
     
     var content: Content! {
         didSet {
-            //TODO: Get Image
+            switch content.isVideo {
+            case true:
+                guard let path = content.path,
+                    let url = FileServiceManager.load(path),
+                    let screenshot = url.getVideoScreenshot else { return }
+                DispatchQueue.main.async {
+                    self.homeImage.image = screenshot
+                }
+                
+            case false:
+                DispatchQueue.main.async {
+                    self.homeImage.image = self.content.getImage
+                }
+            }
         }
     }
 }

@@ -28,7 +28,29 @@ class CoreManager {
         return container
     }()
     
+    func save(path: String, isMovie: Bool){
+        let entity = NSEntityDescription.entity(forEntityName: "Content", in: context)!
+        let content = Content(entity: entity, insertInto: context)
+        content.isVideo = isMovie
+        content.path = path
+        
+        saveContext()
+        
+        print("An Item was Saved: \(path)")
+    }
     
+    func load() -> [Content]{
+        let fetchRequest = NSFetchRequest<Content>(entityName: "Content")
+        var content = [Content]()
+        do{
+            content = try context.fetch(fetchRequest)
+        } catch{
+            print("couldn't fetch: \(error.localizedDescription)")
+            
+        }
+        print("Content was loaded")
+        return content
+    }
     
     
 
